@@ -4,7 +4,7 @@ import streamlit as st
 st.set_page_config(page_title="Tableau de bord Brevets", layout="wide")
 
 # Titre
-st.title("📊 Tableau de bord des brevets")
+st.title("📊 Tableau de bord")
 
 # Menu latéral
 st.sidebar.header("Filtres")
@@ -14,6 +14,20 @@ st.write("Bienvenue sur le tableau de bord des brevets !")
 
 
 import pandas as pd
+
+# Affichage des indicateurs
+col1, col2, col3 = st.columns(3)
+
+col1.metric(label="📜 Total Brevets", value=total_brevets)
+col2.metric(label="✅ Brevets Traités", value=brevets_traités)
+col3.metric(label="⏳ Brevets Restants", value=brevets_restants)
+
+# Affichage dynamique
+st.subheader("📡 Suivi des traitements en temps réel")
+
+col1, col2 = st.columns(2)
+col1.metric("🔄 Brevets en cours", brevets_en_cours)
+col2.metric("✅ Brevets terminés", brevets_traités)
 
 # Charger les données
 @st.cache_data
@@ -34,22 +48,10 @@ total_brevets = len(df)
 brevets_traités = df[df['Status'] == 'Traité'].shape[0]  # Supposons qu'on ait une colonne 'Statut'
 brevets_restants = total_brevets - brevets_traités
 
-# Affichage des indicateurs
-col1, col2, col3 = st.columns(3)
-
-col1.metric(label="📜 Total Brevets", value=total_brevets)
-col2.metric(label="✅ Brevets Traités", value=brevets_traités)
-col3.metric(label="⏳ Brevets Restants", value=brevets_restants)
-
 # Nombre de brevets en cours
 brevets_en_cours = df[df["Status"] == "En cours"].shape[0]
 
-# Affichage dynamique
-st.subheader("📡 Suivi des traitements en temps réel")
 
-col1, col2 = st.columns(2)
-col1.metric("🔄 Brevets en cours", brevets_en_cours)
-col2.metric("✅ Brevets terminés", brevets_traités)
 
 # Progression du traitement
 progress = brevets_traités / total_brevets if total_brevets > 0 else 0
