@@ -4,17 +4,70 @@ import io
 from st_aggrid import AgGrid, GridOptionsBuilder
 
 # Configuration de la page
-st.set_page_config(page_title="Tableau de bord Brevets", layout="wide")
+st.set_page_config(
+    page_title="📊 Tableau de bord Brevets",
+    layout="wide",  # Permet d'utiliser toute la largeur de la page
+    page_icon="📈"
+)
 
-# Titre
-st.title("📊 Tableau de bord")
+st.markdown(
+    """
+    <style>
+        /* Changer la couleur du titre */
+        .title {
+            color: #FF5733 !important;
+            text-align: center;
+            font-size: 2.5rem;
+        }
 
-# Menu latéral
-st.sidebar.header("Filtres")
+        /* Modifier la couleur du texte de la barre latérale */
+        section[data-testid="stSidebar"] {
+            background-color: #F0F2F6;
+        }
+
+        /* Personnaliser les boutons */
+        div.stButton > button {
+            background-color: #FF5733;
+            color: white;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        /* Ajuster l'espacement et la mise en page */
+        .block-container {
+            padding: 2rem;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# 🏷️ Titre principal avec icône
+st.markdown('<h1 class="title">📊 Tableau de bord - Acquisition de Données </h1>', unsafe_allow_html=True)
+
+
+# 🔍 Menu latéral (Filtres)
+st.sidebar.header("🛠️ Filtres")
 st.sidebar.text("Sélectionnez vos critères")
+type_brevet = st.sidebar.selectbox("📄 Type de brevet", ["Tous", "Technologique", "Médical", "Industriel"])
+periode = st.sidebar.radio("📅 Période", ["Dernière semaine", "Dernier mois", "Dernière année"])
 
-st.write("Bienvenue sur le tableau de bord des brevets !")
+# 🎯 Disposition améliorée avec des colonnes
+col1, col2 = st.columns([2, 3])  # 2/5 et 3/5 de la largeur totale
 
+with col1:
+    st.subheader("📌 Informations générales")
+    st.write("Bienvenue sur le tableau de bord des brevets !")
+    st.info("Ce tableau de bord vous permet de suivre en temps réel les brevets en cours d'analyse.")
+
+with col2:
+    st.subheader("📊 Statistiques clés")
+    brevets_total = 100  # Exemple de valeur dynamique
+    brevets_analysés = 45  # Exemple de valeur dynamique
+    st.metric(label="📄 Nombre total de brevets", value=brevets_total)
+    st.metric(label="✅ Brevets analysés", value=brevets_analysés)
+
+    
 # Charger les données
 @st.cache_data
 def load_data():
@@ -83,3 +136,7 @@ if not df.empty:
     )
 else:
     st.warning("⚠️ Aucune donnée disponible pour afficher le tableau de bord.")
+
+# 🏁 Footer avec copyright
+st.markdown("<hr>", unsafe_allow_html=True)
+st.markdown("© 2025 - UTHAYAKUMAR Kelvin - 🚀", unsafe_allow_html=True)
