@@ -27,7 +27,7 @@ st.markdown(
 
         /* Personnaliser les boutons */
         div.stButton > button {
-            background-color: #FF5733;
+            background-color: #0550e8;
             color: white;
             border-radius: 10px;
             font-size: 16px;
