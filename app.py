@@ -26,9 +26,16 @@ with col2:
 
 # 🎯 **Compteurs par statut du brevet**
 if "Statut du brevet" in df.columns:
-    nb_active = df[df["Statut du brevet"].str.lower() == "active"].shape[0]
-    nb_active_exp = df[df["Statut du brevet"].str.contains("Active", case=False, na=False) & df["Date de publication"].notnull()].shape[0]
-    nb_expired = df[df["Statut du brevet"].str.lower() == "expired"].shape[0]
+    statut_lower = df["Statut du brevet"].str.lower()
+
+    # Filtrer les brevets actifs (sans expiration indiquée)
+    nb_active = df[statut_lower == "active"].shape[0]
+
+    # Filtrer les brevets actifs avec une date d'expiration
+    nb_active_exp = df[statut_lower.str.startswith("active, expires", na=False)].shape[0]
+
+    # Filtrer les brevets expirés
+    nb_expired = df[statut_lower.str.startswith("expired", na=False)].shape[0]
 
     with col3:
         st.metric("📗 Brevets actifs", nb_active)
