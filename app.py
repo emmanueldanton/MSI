@@ -13,7 +13,7 @@ except FileNotFoundError:
     st.stop()
 
 # 📌 Configuration de la page Streamlit
-st.set_page_config(page_title="📊 Datavisualisation des brevets 6G", layout="wide")
+st.set_page_config(page_title="📊 MSI - Groupe 4 - Acquisition Automatique de Données - Brevet", layout="wide")
 st.title("📊 Datavisualisation des brevets 6G")
 
 # 🔍 **Section : Indicateurs Clés**
