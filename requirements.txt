@@ -4,4 +4,4 @@ streamlit-aggrid
 openpyxl
 plotly.express
 wordcloud
-matplotlib.pyplot
+matplotlib-pyplot
