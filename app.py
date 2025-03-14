@@ -5,7 +5,7 @@ import wordcloud
 import matplotlib.pyplot as plt
 #YANN
 # 📌 Charger le fichier CSV des brevets
-csv_file_path = "brevets_6Gfinal2.csv"
+csv_file_path = "brevets_6G.csv"
 try:
     df = pd.read_csv(csv_file_path)
 except FileNotFoundError:
