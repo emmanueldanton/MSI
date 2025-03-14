@@ -14,7 +14,7 @@ except FileNotFoundError:
 
 # 📌 Configuration de la page Streamlit
 st.set_page_config(page_title="📊 MSI - Groupe 4 - Acquisition Automatique de Données - Brevet", layout="wide")
-st.title("📊 Datavisualisation des brevets 6G")
+st.title("📊 MSI - Groupe 4 - Acquisition Automatique de Données - Brevet")
 
 # 🔍 **Section : Indicateurs Clés**
 st.subheader("📌 Tableau de bord général")
