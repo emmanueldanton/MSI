@@ -2,3 +2,6 @@ streamlit
 pandas
 streamlit-aggrid
 openpyxl
+plotly.express
+wordcloud
+matplotlib.pyplot
