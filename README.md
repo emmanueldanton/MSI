@@ -40,7 +40,7 @@ streamlit run app.py
 
 Lancez l'application : streamlit run app.py
 
-Chargez le fichier CSV : L'application tentera d'ouvrir brevets_6Gfinal2.csv
+Chargez le fichier CSV : L'application tentera d'ouvrir brevets_6G.csv
 
 Explorez les données via les tableaux, filtres et visualisations interactives
 
@@ -50,13 +50,16 @@ Téléchargez le fichier modifié pour l'enregistrer en local
 
 ⚠️ Problèmes possibles
 
-Fichier CSV introuvable : Vérifiez que brevets_6Gfinal2.csv est bien dans le même dossier que app.py.
+Fichier CSV introuvable : Vérifiez que brevets_6G.csv est bien dans le même dossier que app.py.
 
 Colonnes manquantes : Assurez-vous que votre fichier contient les colonnes attendues (Date de publication, Statut du brevet, etc.).
 
 Données incorrectes : Les dates doivent être dans un format lisible (YYYY-MM-DD) pour être traitées correctement.
 
 📌 Auteurs
+DANTON Emmanuel
+
+DA COSTA SA Edmilson
 
 UTHAYAKUMAR Kelvin
 
@@ -64,9 +67,7 @@ DIARRASSOUBA Yann
 
 FALL Habdallahi
 
-DANTON Emmanuel
 
-DA COSTA SA Edmilson
 
 © 2025 - Tous droits réservés 🚀
 
